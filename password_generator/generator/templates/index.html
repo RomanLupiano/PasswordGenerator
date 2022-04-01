@@ -1,17 +1,30 @@
-<form action="{% url 'password' %}">
-    <h1>Password Generator</h1>
-    <label for="lenght">Select the lenght of your password: </label>
-    <input type="number" name="lenght" id="lenght">
-    <br>
-    Add:
-    <label for="uppercase">Uppercase</label>
-    <input type="checkbox" name="uppercase" id="uppercase">
+{% extends 'layout.html' %}
+{% block content %}    
+<div class="col-md-4 offset-md-4">
+    <form action="{% url 'password' %}" class="card-body p-5" style="background-color: #121212;">
 
-    <label for="special">Special Characters</label>
-    <input type="checkbox" name="special" id="special">
+        <h1>Password Generator</h1>
 
-    <label for="numbers">Numbers</label>
-    <input type="checkbox" name="numbers" id="numbers">
-    <br>
-    <button>Generate Password</button>
-</form>
+        <label for="lenght">Select the lenght of your password: </label>
+        <input type="number" name="lenght" id="lenght">
+
+        <div class="form-check form-switch my-2">
+            <label for="uppercase" class="form-check-label">Uppercase</label>
+            <input type="checkbox" name="uppercase" id="uppercase" class="form-check-input">
+        </div>
+
+        <div class="form-check form-switch my-2">
+            <label for="special" class="form-check-label">Special Characters</label>
+            <input type="checkbox" name="special" id="special" class="form-check-input">
+        </div>
+
+        <div class="form-check form-switch my-2">
+            <label for="numbers" class="form-check-label">Numbers</label>
+            <input type="checkbox" name="numbers" id="numbers" class="form-check-input">
+        </div>
+
+        <button class="btn btn-primary">Generate Password</button>
+    </form>
+</div>
+
+{% endblock content %}
