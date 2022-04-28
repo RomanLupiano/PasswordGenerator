@@ -3,12 +3,25 @@
       <a class="navbar-brand" href="{% url 'index' %}">Password Generator</a>
       <div class="" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+          
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">See my passwords</a>
+          </li>
+          {% else %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'login' %}">Login</a>
           </li>
+          {% endif %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about' %}">About</a>
           </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% endif %}
+            
         </ul>
       </div>
     </div>
